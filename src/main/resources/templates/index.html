@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Db app with Spring Boot</title>
+</head>
+<body>
+<h3>Todo Versiyon 1.0.1</h3>
+<div>
+    <p>
+        Kayıt ekleyebilirsiniz
+    </p>
+</div>
+<hr/>
+<div>
+    <form action="#" th:action="@{/indexpost}" th:object="${todo}" method="post">
+        <p>aktivite: <input type="text" th:field="*{description}" /></p>
+        <p><input type="submit" value="Kaydet" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+<hr/>
+<div style="font-size: medium; font-weight: bold;">
+    <ul>
+        <li th:each="todo : ${todoList}"
+            th:text="${todo.description}">Text</li>
+    </ul>
+</div>
+</body>
+</html>
